@@ -1,7 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="row">
         <input class="form-control search_cls" type="text"  [(ngModel)]="item" placeholder="Search for Shop Name" name="search">
-    <a href="http://localhost:4200/add"><button class="btn primary-color submit-btn">Add Shop</button></a>
+    <input type="text" class="form-control search_cls" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    <button class="btn primary-color submit-btn"><a href="http://localhost:4200/add">Add Shop</a></button>
+    <button class="btn primary-color submit-btn"><a href="http://localhost:4200/list">Reset</a></button>
   </div>
 <div style="text-align:center">
     
