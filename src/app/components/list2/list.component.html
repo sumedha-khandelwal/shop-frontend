@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+        <input class="form-control search_cls" type="text"  [(ngModel)]="item" placeholder="Search for Shop Name" name="search">
+    <a href="http://localhost:4200/add"><button class="btn primary-color submit-btn">Add Shop</button></a>
+  </div>
+<div style="text-align:center">
+    
+  </div>
+  <div class="container marg-top-min20">
+  <div class="table-responsive tableContent mb-5">
+    <table class="table table-striped min-width-table" >
+        <thead>
+            <tr>
+                <th class="font-weight-300-table">S.NO.</th>
+                <th class="font-weight-300-table">Name</th>
+                <th class="font-weight-300-table">Owner Name</th>
+                <th class="font-weight-300-table">Shop Type</th>
+                <th class="font-weight-300-table">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let shop of shopList | search:item ; let index=index ;">
+                <td width="30">{{index + 1}}</td>
+                <td>{{shop.name}}</td>
+                <td>{{shop.ownerName }}</td>
+                <td>{{shop.shopType }}</td>
+                <td>{{shop.address}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>

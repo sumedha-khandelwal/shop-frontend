@@ -1,0 +1,114 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+    <h1 class="colorClass">Add a Shop</h1>
+    </div>
+    <form [formGroup]="shopForm" novalidate>
+        <div class="containerOuter ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="subSecHeading colorClass">Shop Name</h3>
+                <div class="row-direction">
+                  <div class="padding-10 width-80">
+                    <input class="box-shadow height-75 form-control" formControlName="name" placeholder="Shop Name" type="text" />
+                  </div>
+                  <p class="error_txt" *ngIf="(shopForm.controls.name.touched || submitAttempt) && !shopForm.controls.name.valid">
+                    Please enter Shop Name</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="containerOuter ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="subSecHeading colorClass">Owner Name</h3>
+                <div class="row-direction">
+                  <div class="padding-10 width-80">
+                    <input class="box-shadow height-text form-control" value={{ownerName}} formControlName="ownerName" placeholder="Owner Name" type="text" />
+                  </div>
+                  <p class="error_txt" *ngIf="(shopForm.controls.ownerName.touched || submitAttempt) && !shopForm.controls.ownerName.valid">
+                    Please enter Owner Name</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="containerOuter ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="subSecHeading colorClass">Shop Type</h3>
+                <div class="row-direction">
+                  <div class="padding-10 width-80">
+                    <select class="form-control drop-down-category mdb-select colorful-select dropdown-primary" formControlName="shopType">
+                      <option *ngFor="let shop of optionsSelect" value={{shop.value}}>
+                          {{shop.label}}
+                      </option>
+                  </select>
+                  <p class="error_txt" *ngIf="(shopForm.controls.shopType.touched || submitAttempt) && !shopForm.controls.shopType.valid">
+                    Please select a Shop Type</p>
+                  </div>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="containerOuter ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="subSecHeading colorClass">Address</h3>
+                <div class="row-direction">
+                  <div class="padding-10 width-80">
+                    <input class="box-shadow height-text form-control" formControlName="address" placeholder="Address" type="text" />
+                  </div>
+                  <p class="error_txt" *ngIf="(shopForm.controls.address.touched || submitAttempt) && !shopForm.controls.address.valid">
+                    Please enter Address</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="containerOuter ">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="subSecHeading colorClass">Location</h3>
+                <div class="row-direction">
+   
+    <div class="form-group">
+      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    </div>
+                  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"
+                      (dragEnd)="markerDragEnd($event)"></agm-marker>
+                  </agm-map>
+                  <h5>Address: {{address}}</h5>
+                  <div >Latitude: {{lat}}</div>
+                  <div >Longitude: {{lng}}</div>
+                  <input type="hidden" formControlName="latitude" value={{lat}} />
+                  <input type="hidden" formControlName="longitude" value={{lng}} />
+                  <p class="error_txt" *ngIf="(lat==null && submitAttempt)">
+                    Please select Location</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+    
+        <div class="row">
+          <button class="btn primary-color submit-btn" [attr.disabled]="this.processing? true:null" (click)="submit()">Submit</button>
+        </div>
+      </form>
+
+  

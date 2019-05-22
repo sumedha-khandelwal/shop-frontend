@@ -1,0 +1,25 @@
+.tableContent table.table td{color:#666;font-size: 1rem;}
+.tableContent a{color:#4285f4!important;}
+@media (max-width:600px){
+	.tableContent table.table td{font-size:0.875rem; }
+}
+.hideClass{display: none !important;}
+
+.search_cls{
+
+    width: 200px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+    
+}
+
+.submit-btn{
+    float: right;
+    background-color: gainsboro;
+    width: 100px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+    
+}
+
+
